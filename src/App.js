@@ -15,7 +15,6 @@ function App() {
                 <Route component={CashBox} path={'/kassa'}/>
                 <Route component={Expense} path={'/'} />
             </Switch>
-
         </div>
     );
 }
