@@ -1,13 +1,54 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.Navbar a{
+  text-decoration: none !important;
+  color: white;
+  font-size: 20px !important;
 }
+.Navbar li{
+  list-style-type: none;
+  padding: 0 20px;
+}
+.Navbar ul{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 7px;
+}
+/*.searchSpan{*/
+/*  position: relative;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*}*/
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*.searchIcon{*/
+/*  position: absolute;*/
+/*  left: 3.5%;*/
+/*  font-size: 20px;*/
+/*}*/
+/*.searchInput{*/
+/*  outline: none;*/
+/*  border-radius: 10px;*/
+/*  padding: 5px;*/
+/*  border: 2px solid;*/
+/*  text-indent: 20px;*/
+/*}*/
+/*.ModalWidth{*/
+/*  width: 400px !important;*/
+/*}*/
+.EditBtn{
+  font-size: 25px;
+  cursor: pointer;
 }
+.CloseBtn{
+  font-size: 25px !important;
+  cursor: pointer;
+  color: black;
+}
+.date-picker {
+  width: 100px !important;
+  height: 40px !important;
+}
+ .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+   padding: 0 10px !important;
+   height: 40px !important;
+ }
