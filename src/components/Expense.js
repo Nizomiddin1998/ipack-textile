@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {connect} from "react-redux";
 import {GrClose, GrEdit} from "react-icons/gr";
-import {deleteExpense, addExpenseName, editExpanseName} from "../redux/action";
+import {deleteExpense, addExpenseName, editExpanseName} from "../redux/expenseReducer";
 import {ModalVisibleInfo} from "./ModalVisible";
 
-function Expense({expense, users, cashBox,deleteExpense,addExpenseName,editExpanseName}) {
+function Expense({expense, users, cashBOX,deleteExpense,addExpenseName,editExpanseName}) {
     const [modalVisible, setModalVisible] = useState(false)
     const [type, setType] = useState('')
     const [idIndex, setIdIndex] = useState('')
@@ -45,7 +45,7 @@ function Expense({expense, users, cashBox,deleteExpense,addExpenseName,editExpan
                         }
                         <td>{item.miqdori}</td>
                         {
-                            cashBox.map((cash,index)=> parseInt(item.kassa_id)===cash.id&& <td key={index}>
+                            cashBOX.map((cash,index)=> parseInt(item.kassa_id)===cash.id&& <td key={index}>
                                 {cash.name}
                             </td>)
                         }
@@ -61,7 +61,7 @@ function Expense({expense, users, cashBox,deleteExpense,addExpenseName,editExpan
         <ModalVisibleInfo isOpen={modalVisible}
                           toggle={toggle} type={type}
                           users={users}
-                          cashBox={cashBox}
+                          cashBox={cashBOX}
                           addExpenseName={addExpenseName}
                           editExpanseName={editExpanseName}
                           idIndex={idIndex}
@@ -70,11 +70,11 @@ function Expense({expense, users, cashBox,deleteExpense,addExpenseName,editExpan
     );
 }
 
-function mapStateToProps(state){
-    return {
-        expense: state.expenseReducer.expense,
-        users: state.usersReducer.users,
-        cashBox: state.cashBoxReducer.kassalar,
-    }
-}
-export default connect(mapStateToProps,{deleteExpense,addExpenseName,editExpanseName})(Expense);
+// function mapStateToProps(state){
+//     return {
+//         expense: state.expenseReducer.expense,
+//         users: state.usersReducer.users,
+//         cashBox: state.cashBoxReducer.kassalar,
+//     }
+// }
+export default connect(({expense:{expense}, users: {users}, cashBOX: {cashBOX}})=>({expense, users,cashBOX}),{deleteExpense,addExpenseName,editExpanseName})(Expense);

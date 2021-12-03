@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {connect} from "react-redux";
 import {GrClose, GrEdit} from "react-icons/gr";
-import {deleteIncome, addIncomeName, editIncomeName} from "../redux/action";
+import {deleteIncome, addIncomeName, editIncomeName} from "../redux/incomeReducer";
 import {ModalVisibleInfo} from "./ModalVisible";
 
 function Income({income,users,cashBox,deleteIncome,addIncomeName,editIncomeName}) {
@@ -72,9 +72,9 @@ function Income({income,users,cashBox,deleteIncome,addIncomeName,editIncomeName}
 }
 function mapStateToProps(state){
     return {
-        income: state.incomeReducer.income,
-        users: state.usersReducer.users,
-        cashBox: state.cashBoxReducer.kassalar
+        income: state.income.income,
+        users: state.users.users,
+        cashBox: state.cashBOX.cashBOX
     }
 }
 export default connect(mapStateToProps,{deleteIncome,addIncomeName,editIncomeName})(Income);

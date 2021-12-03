@@ -11,8 +11,8 @@ function App() {
           <Navbar/>
 
             <Switch>
-                <Route component={Income} path={'/kirim'}/>
-                <Route component={CashBox} path={'/kassa'}/>
+                <Route component={Income} path='/kirim'/>
+                <Route component={CashBox} path='/kassa'/>
                 <Route component={Expense} path={'/'} />
             </Switch>
         </div>

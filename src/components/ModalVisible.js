@@ -56,13 +56,33 @@ export function ModalVisibleInfo({
         e.preventDefault()
         toggle()
         if (type === 'addChiqim') {
-            addExpenseName(e.target)
+            addExpenseName({
+                foydalanuvchi_id:e.target[0].value,
+                miqdori:e.target[2].value,
+                kassa_id: e.target[1].value,
+                vaqt: e.target[3].value
+            })
         } else if (type === 'editChiqim') {
-            editExpanseName(e.target, idIndex)
+            editExpanseName({
+                foydalanuvchi_id:e.target[0].value,
+                miqdori:e.target[2].value,
+                kassa_id: e.target[1].value,
+                vaqt: e.target[3].value
+            }, idIndex)
         } else if (type === 'addKirim') {
-            addIncomeName(e.target)
+            addIncomeName({
+                foydalanuvchi_id:e.target[0].value,
+                miqdori:e.target[2].value,
+                kassa_id: e.target[1].value,
+                vaqt: e.target[3].value
+            })
         } else if (type === 'editKirim')
-            editIncomeName(e.target,idIndex)
+            editIncomeName({
+                foydalanuvchi_id:e.target[0].value,
+                miqdori:e.target[2].value,
+                kassa_id: e.target[1].value,
+                vaqt: e.target[3].value
+            },idIndex)
 
     }
 

@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import {connect} from "react-redux";
 import {GrEdit, GrClose} from 'react-icons/gr';
 import ModalVisible from "./ModalVisible";
-import {addCashName, deleteCash,editCashName} from "../redux/action";
+import {addCashName, deleteCash,editCashName} from "../redux/cashBoxReducer";
 
-function CashBox({cash, addCashName,deleteCash,editCashName}) {
+function CashBox({cashBOX, addCashName,deleteCash,editCashName}) {
     const [modalVisible, setModalVisible] = useState(false)
     const [type, setType] = useState('')
     const [idIndex, setIdIndex] = useState('')
@@ -34,7 +34,7 @@ function CashBox({cash, addCashName,deleteCash,editCashName}) {
                 </thead>
                 <tbody>
                 {
-                    cash.map((item, index) => <tr key={index}>
+                    cashBOX.map((item, index) => <tr key={index}>
                         <td><h3>{item.id}</h3></td>
                         <td><h3>{item.name}</h3></td>
                         <td>
@@ -47,7 +47,7 @@ function CashBox({cash, addCashName,deleteCash,editCashName}) {
             </table>
             <ModalVisible toggle={toggle}
                           isOpen={modalVisible}
-                          type={type} cashBox={cash}
+                          type={type} cashBox={cashBOX}
                           addCashName={addCashName}
                           idIndex={idIndex}
                           editCashName={editCashName}
@@ -56,10 +56,10 @@ function CashBox({cash, addCashName,deleteCash,editCashName}) {
     );
 }
 
-function mapStateToProps(state) {
-    return {
-        cash: state.cashBoxReducer.kassalar
-    }
-}
+// function mapStateToProps(state) {
+//     return {
+//         cash: state.cashBoxReducer.kassalar
+//     }
+// }
 
-export default connect(mapStateToProps,{addCashName,deleteCash,editCashName})(CashBox);
+export default connect(({cashBOX:{cashBOX}})=>({cashBOX}),{addCashName,deleteCash,editCashName})(CashBox);
